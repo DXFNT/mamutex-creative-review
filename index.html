@@ -1,0 +1,1338 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mamutex — Creative Review | Dodané vs Nasadené | Dexfinity</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Questrial&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --dex-blue: #0065F7;
+      --dex-navy: #05024E;
+      --dex-white: #ffffff;
+      --dex-light-bg: #F4F6FC;
+      --dex-blue-light: #E8F0FE;
+      --dex-blue-10: rgba(0, 101, 247, 0.1);
+      --dex-blue-20: rgba(0, 101, 247, 0.2);
+      --dex-navy-light: #0A0A6E;
+      --dex-text: #1A1A2E;
+      --dex-muted: #6B7280;
+      --dex-border: #E5E7EB;
+      --dex-teal: #16AB8B;
+      --dex-orange: #ff7f00;
+      --font-primary: 'Questrial', Arial, sans-serif;
+      --font-secondary: 'Poppins', Arial, sans-serif;
+      --radius-sm: 6px;
+      --radius-md: 12px;
+      --radius-lg: 20px;
+      --shadow: 0 2px 8px rgba(0, 101, 247, 0.08);
+    }
+
+    body {
+      font-family: var(--font-secondary);
+      color: var(--dex-text);
+      background: var(--dex-white);
+      line-height: 1.6;
+    }
+    h1, h2, h3 { font-family: var(--font-primary); }
+
+    /* ─── NAV ─── */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--dex-border);
+      padding: 10px 0;
+    }
+    .nav .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .nav-logo { height: 42px; }
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--dex-muted);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      font-family: var(--font-secondary);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--dex-blue); }
+
+    /* ─── HERO ─── */
+    .hero {
+      background: var(--dex-navy);
+      color: var(--dex-white);
+      padding: 80px 40px 100px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero .circle-1 {
+      position: absolute;
+      width: 500px; height: 500px;
+      border: 2px solid var(--dex-blue);
+      border-radius: 50%;
+      opacity: 0.12;
+      top: -200px; right: -100px;
+    }
+    .hero .circle-2 {
+      position: absolute;
+      width: 300px; height: 300px;
+      border: 2px solid var(--dex-blue);
+      border-radius: 50%;
+      opacity: 0.08;
+      bottom: -100px; left: -80px;
+    }
+    .hero .circle-3 {
+      position: absolute;
+      width: 180px; height: 180px;
+      background: var(--dex-blue);
+      border-radius: 50%;
+      opacity: 0.06;
+      top: 60px; right: 200px;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: var(--dex-blue-20);
+      border: 1px solid rgba(0,101,247,0.3);
+      border-radius: 50px;
+      padding: 6px 18px;
+      font-size: 12px;
+      font-weight: 500;
+      font-family: var(--font-secondary);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      color: var(--dex-white);
+    }
+    .hero h1 {
+      font-size: 44px;
+      font-weight: 400;
+      margin-bottom: 8px;
+      line-height: 1.15;
+      position: relative;
+    }
+    .hero h1 span { color: var(--dex-blue); }
+    .hero .tagline {
+      font-family: var(--font-secondary);
+      font-size: 14px;
+      font-weight: 300;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--dex-blue);
+      margin-bottom: 16px;
+    }
+    .hero p.sub {
+      font-size: 16px;
+      font-weight: 300;
+      opacity: 0.8;
+      max-width: 620px;
+      margin-bottom: 40px;
+      font-family: var(--font-secondary);
+    }
+    .hero-stats {
+      display: flex;
+      gap: 48px;
+      flex-wrap: wrap;
+      position: relative;
+    }
+    .hero-stat { text-align: center; }
+    .hero-stat .num {
+      font-size: 36px;
+      font-weight: 700;
+      font-family: var(--font-secondary);
+      display: block;
+      color: var(--dex-white);
+    }
+    .hero-stat .num.accent { color: var(--dex-blue); }
+    .hero-stat .num.warn { color: var(--dex-orange); }
+    .hero-stat .num.good { color: var(--dex-teal); }
+    .hero-stat .label {
+      font-size: 11px;
+      font-family: var(--font-secondary);
+      font-weight: 500;
+      opacity: 0.6;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* ─── LAYOUT ─── */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ─── SECTIONS ─── */
+    section { padding: 56px 0; }
+    section.alt { background: var(--dex-light-bg); }
+    section h2 {
+      font-size: 28px;
+      font-weight: 400;
+      color: var(--dex-navy);
+      margin-bottom: 6px;
+    }
+    section .section-sub {
+      color: var(--dex-muted);
+      font-size: 14px;
+      font-family: var(--font-secondary);
+      margin-bottom: 32px;
+    }
+
+    /* ─── METRIC CARDS ─── */
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+    }
+    .metric-card {
+      background: var(--dex-white);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      box-shadow: var(--shadow);
+      border-left: 4px solid var(--dex-blue);
+    }
+    .metric-card h3 {
+      font-size: 12px;
+      font-family: var(--font-secondary);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--dex-muted);
+      margin-bottom: 8px;
+    }
+    .metric-card .value {
+      font-size: 28px;
+      font-weight: 700;
+      font-family: var(--font-secondary);
+      color: var(--dex-navy);
+    }
+    .metric-card .desc {
+      font-size: 13px;
+      font-family: var(--font-secondary);
+      color: var(--dex-muted);
+      margin-top: 4px;
+    }
+    .metric-card.warn { border-left-color: var(--dex-orange); }
+    .metric-card.good { border-left-color: var(--dex-teal); }
+    .metric-card.dark {
+      border-left-color: var(--dex-navy);
+      background: var(--dex-navy);
+      color: var(--dex-white);
+    }
+    .metric-card.dark h3 { color: rgba(255,255,255,0.6); }
+    .metric-card.dark .value { color: var(--dex-white); font-size: 15px; font-weight: 500; font-style: italic; line-height: 1.5; }
+
+    /* ─── BADGES ─── */
+    .badge {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 600;
+      font-family: var(--font-secondary);
+      letter-spacing: 0.3px;
+    }
+    .badge-critical { background: var(--dex-navy); color: var(--dex-white); }
+    .badge-warning { background: var(--dex-blue-10); color: var(--dex-blue); }
+    .badge-info { background: var(--dex-blue-light); color: var(--dex-blue); }
+    .badge-ok { background: var(--dex-light-bg); color: var(--dex-navy); }
+    .badge-positive { background: var(--dex-teal); color: var(--dex-white); }
+    .badge-orange { background: rgba(255,127,0,0.12); color: var(--dex-orange); }
+
+    .issue-tag {
+      font-size: 11px;
+      font-family: var(--font-secondary);
+      padding: 3px 10px;
+      border-radius: 20px;
+      background: var(--dex-blue-10);
+      color: var(--dex-blue);
+      font-weight: 500;
+    }
+    .issue-tag.severe { background: var(--dex-navy); color: var(--dex-white); }
+
+    /* ─── CAT HEADER ─── */
+    .cat-header {
+      font-size: 13px;
+      font-family: var(--font-secondary);
+      font-weight: 600;
+      color: var(--dex-navy);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin: 36px 0 16px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--dex-blue);
+      display: inline-block;
+    }
+
+    /* ─── CHECKLIST TABLE ─── */
+    .audit-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--dex-border);
+      margin-top: 16px;
+    }
+    .audit-table th {
+      background: var(--dex-navy);
+      color: var(--dex-white);
+      padding: 14px 18px;
+      font-size: 11px;
+      font-family: var(--font-secondary);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      text-align: left;
+    }
+    .audit-table td {
+      padding: 14px 18px;
+      font-size: 14px;
+      font-family: var(--font-secondary);
+      border-bottom: 1px solid var(--dex-border);
+      background: var(--dex-white);
+    }
+    .audit-table tr:last-child td { border-bottom: none; }
+    .audit-table tr:hover td { background: var(--dex-light-bg); }
+    .audit-table .item-name { font-weight: 600; color: var(--dex-navy); }
+    .audit-table .item-desc { font-size: 12px; color: var(--dex-muted); margin-top: 2px; }
+
+    /* Status icons */
+    .status-icon { font-size: 18px; text-align: center; }
+    .status-yes { color: var(--dex-teal); }
+    .status-no { color: #EF4444; }
+    .status-partial { color: var(--dex-orange); }
+
+    /* ─── AD CARDS ─── */
+    .ads-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 16px;
+      margin-top: 16px;
+    }
+    .ad-card {
+      background: var(--dex-white);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--dex-border);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .ad-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 24px rgba(0,101,247,0.12);
+    }
+    .ad-card .ad-header {
+      padding: 12px 18px;
+      background: var(--dex-navy);
+      color: var(--dex-white);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .ad-card .ad-header .type {
+      font-size: 11px;
+      font-family: var(--font-secondary);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      opacity: 0.8;
+    }
+    .ad-card .ad-header .platform {
+      background: var(--dex-blue-20);
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-family: var(--font-secondary);
+    }
+    .ad-card .ad-body { padding: 18px; }
+    .ad-card .ad-body h4 {
+      font-size: 14px;
+      font-weight: 600;
+      font-family: var(--font-secondary);
+      margin-bottom: 8px;
+      color: var(--dex-navy);
+    }
+    .ad-card .ad-body p {
+      font-size: 13px;
+      font-family: var(--font-secondary);
+      color: var(--dex-muted);
+      margin-bottom: 12px;
+    }
+    .ad-card .ad-body .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    /* ─── FINDINGS ─── */
+    .finding {
+      display: grid;
+      grid-template-columns: 4px 1fr;
+      margin-bottom: 14px;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      background: var(--dex-white);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--dex-border);
+    }
+    .finding .bar { min-height: 100%; }
+    .finding .bar.high { background: var(--dex-navy); }
+    .finding .bar.med { background: var(--dex-blue); }
+    .finding .bar.low { background: rgba(0,101,247,0.3); }
+    .finding .content { padding: 20px 24px; }
+    .finding .content h4 {
+      font-size: 15px;
+      font-weight: 600;
+      font-family: var(--font-secondary);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--dex-navy);
+    }
+    .finding .content p {
+      font-size: 13px;
+      font-family: var(--font-secondary);
+      color: var(--dex-muted);
+      line-height: 1.6;
+    }
+    .finding .content .rec {
+      margin-top: 10px;
+      padding: 10px 14px;
+      background: var(--dex-blue-10);
+      border-radius: var(--radius-sm);
+      font-size: 13px;
+      font-family: var(--font-secondary);
+      color: var(--dex-navy);
+      border-left: 3px solid var(--dex-blue);
+    }
+    .finding .content .rec strong { color: var(--dex-blue); }
+
+    /* ─── SUMMARY BOX ─── */
+    .summary-box {
+      background: var(--dex-navy);
+      color: var(--dex-white);
+      border-radius: var(--radius-lg);
+      padding: 48px;
+      margin: 48px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .summary-box .circle-dec {
+      position: absolute;
+      border: 2px solid var(--dex-blue);
+      border-radius: 50%;
+      opacity: 0.1;
+    }
+    .summary-box .circle-dec.c1 { width: 300px; height: 300px; top: -120px; right: -60px; }
+    .summary-box .circle-dec.c2 { width: 200px; height: 200px; bottom: -80px; left: -40px; }
+    .summary-box h2 { color: var(--dex-white); margin-bottom: 24px; }
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      position: relative;
+    }
+    .summary-item {
+      text-align: center;
+      padding: 24px 16px;
+      background: rgba(255,255,255,0.06);
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .summary-item .val {
+      font-size: 32px;
+      font-weight: 700;
+      font-family: var(--font-secondary);
+      color: var(--dex-blue);
+    }
+    .summary-item .val.teal { color: var(--dex-teal); }
+    .summary-item .val.orange { color: var(--dex-orange); }
+    .summary-item .label-title {
+      font-size: 14px;
+      font-family: var(--font-secondary);
+      font-weight: 600;
+      margin-top: 4px;
+    }
+    .summary-item .desc {
+      font-size: 12px;
+      font-family: var(--font-secondary);
+      opacity: 0.6;
+      margin-top: 4px;
+    }
+
+    /* ─── PRIORITY MATRIX ─── */
+    .priority-summary {
+      margin-top: 36px;
+      padding: 32px;
+      background: var(--dex-white);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--dex-border);
+    }
+    .priority-summary h3 {
+      font-size: 16px;
+      font-family: var(--font-secondary);
+      font-weight: 600;
+      color: var(--dex-navy);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .priority-row {
+      display: grid;
+      grid-template-columns: 14px 1fr auto auto;
+      gap: 12px;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--dex-border);
+    }
+    .priority-row:last-child { border-bottom: none; }
+    .priority-row .p-dot {
+      width: 14px; height: 14px; border-radius: 50%; flex-shrink: 0;
+    }
+    .priority-row .p-dot.p1 { background: var(--dex-navy); }
+    .priority-row .p-dot.p2 { background: var(--dex-blue); }
+    .priority-row .p-dot.p3 { background: var(--dex-blue); opacity: 0.35; }
+    .priority-row .p-text {
+      font-size: 14px;
+      font-family: var(--font-secondary);
+      color: var(--dex-navy);
+      font-weight: 500;
+    }
+    .priority-row .p-impact, .priority-row .p-effort {
+      font-size: 11px;
+      font-family: var(--font-secondary);
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 20px;
+      text-align: center;
+      min-width: 80px;
+    }
+    .p-impact { background: var(--dex-navy); color: var(--dex-white); }
+    .p-impact.med { background: var(--dex-blue); }
+    .p-impact.low { background: var(--dex-blue-10); color: var(--dex-blue); }
+    .p-effort { background: var(--dex-light-bg); color: var(--dex-navy); }
+
+    /* ─── TIMELINE ─── */
+    .rec-timeline { position: relative; padding-left: 36px; }
+    .rec-timeline::before {
+      content: '';
+      position: absolute;
+      left: 12px; top: 0; bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--dex-blue), var(--dex-navy));
+    }
+    .rec-step { position: relative; margin-bottom: 36px; }
+    .rec-step::before {
+      content: '';
+      position: absolute;
+      left: -36px; top: 4px;
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      background: var(--dex-blue);
+      border: 3px solid var(--dex-white);
+      box-shadow: 0 0 0 2px var(--dex-blue);
+    }
+    .rec-step .step-label {
+      font-size: 11px;
+      font-weight: 600;
+      font-family: var(--font-secondary);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--dex-blue);
+      margin-bottom: 6px;
+    }
+    .rec-step h3 { font-size: 18px; color: var(--dex-navy); margin-bottom: 8px; }
+    .rec-step p { font-size: 14px; font-family: var(--font-secondary); color: var(--dex-muted); }
+    .rec-step ul { margin-top: 10px; padding-left: 20px; }
+    .rec-step ul li { font-size: 14px; font-family: var(--font-secondary); color: var(--dex-text); margin-bottom: 6px; }
+
+    /* ─── FOOTER ─── */
+    .footer {
+      background: var(--dex-navy);
+      color: var(--dex-white);
+      padding: 48px 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .footer .circle-f {
+      position: absolute;
+      border: 1px solid var(--dex-blue);
+      border-radius: 50%;
+      opacity: 0.08;
+    }
+    .footer .circle-f.f1 { width: 200px; height: 200px; top: -60px; left: -40px; }
+    .footer .circle-f.f2 { width: 150px; height: 150px; bottom: -50px; right: -30px; }
+    .footer-logo { height: 42px; margin-bottom: 16px; }
+    .footer p { font-family: var(--font-secondary); opacity: 0.5; font-size: 13px; }
+    .footer .go-beyond {
+      font-family: var(--font-secondary);
+      font-size: 12px;
+      font-weight: 300;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--dex-blue);
+      margin-top: 12px;
+    }
+
+    /* ─── PROGRESS BAR ─── */
+    .progress-wrap { margin-bottom: 32px; }
+    .progress-label {
+      display: flex; justify-content: space-between;
+      font-size: 13px; font-family: var(--font-secondary);
+      margin-bottom: 8px; color: var(--dex-navy); font-weight: 600;
+    }
+    .progress-bar {
+      height: 12px;
+      background: var(--dex-border);
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+    }
+    .progress-fill {
+      height: 100%;
+      border-radius: 20px;
+      transition: width 0.8s ease;
+    }
+    .progress-fill.blue { background: var(--dex-blue); }
+    .progress-fill.teal { background: var(--dex-teal); }
+    .progress-fill.orange { background: var(--dex-orange); }
+
+    /* ─── FILTER TABS ─── */
+    .filter-tabs {
+      display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap;
+    }
+    .filter-tab {
+      padding: 6px 16px; border-radius: 20px;
+      font-size: 13px; font-family: var(--font-secondary);
+      font-weight: 500; cursor: pointer; border: 1px solid var(--dex-border);
+      background: var(--dex-white); color: var(--dex-muted);
+      transition: all 0.2s;
+    }
+    .filter-tab:hover, .filter-tab.active {
+      background: var(--dex-navy); color: var(--dex-white); border-color: var(--dex-navy);
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 30px; }
+      .hero { padding: 48px 24px 64px; }
+      .hero-stats { gap: 24px; }
+      .ads-grid { grid-template-columns: 1fr; }
+      .summary-grid { grid-template-columns: 1fr 1fr; }
+      .summary-box { padding: 32px 24px; }
+      .nav-links { display: none; }
+      .metrics-grid { grid-template-columns: 1fr 1fr; }
+      .audit-table { font-size: 12px; }
+      .audit-table th, .audit-table td { padding: 10px 12px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="container">
+    <img src="https://www.dexfinity.com/wp-content/uploads/2021/03/Logo-Small-Light-Landscape@2x.png" alt="Dexfinity" class="nav-logo">
+    <ul class="nav-links">
+      <li><a href="#checklist">Checklist</a></li>
+      <li><a href="#sk-ads">SK Ads</a></li>
+      <li><a href="#cz-ads">CZ Ads</a></li>
+      <li><a href="#findings">Zistenia</a></li>
+      <li><a href="#actions">Kroky</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="circle-1"></div>
+  <div class="circle-2"></div>
+  <div class="circle-3"></div>
+  <div class="container" style="position: relative;">
+    <div class="hero-badge">Creative Review &mdash; Marec 2026</div>
+    <div class="tagline">Mamutex.sk &middot; .cz &middot; .hu</div>
+    <h1>Dodan&eacute; vs <span>Nasaden&eacute;</span></h1>
+    <p class="sub">Porovnanie kreat&iacute;vnych v&yacute;stupov dodan&yacute;ch Dexfinity za marec 2026 oproti tomu, &ccaron;o je re&aacute;lne nasaden&eacute; v Meta Ads kampa&ncaron;iach pod spr&aacute;vou Proficio.</p>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <span class="num accent">7</span>
+        <span class="label">Konceptov dodan&yacute;ch</span>
+      </div>
+      <div class="hero-stat">
+        <span class="num good">2</span>
+        <span class="label">Nasaden&yacute;ch Proficiom</span>
+      </div>
+      <div class="hero-stat">
+        <span class="num warn">5</span>
+        <span class="label">&Ccaron;ak&aacute; na nasadenie</span>
+      </div>
+      <div class="hero-stat">
+        <span class="num">~55</span>
+        <span class="label">Akt&iacute;vnych reklam celkovo</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ═══════ CHECKLIST ═══════ -->
+<section id="checklist">
+  <div class="container">
+    <h2>Checklist: Dodan&eacute; &rarr; Zapracovan&eacute;</h2>
+    <p class="section-sub">Kompletný prehľad všetkých výstupov odoslaných Veronike (Proficio) 30. marca 2026 a ich aktuálny status v Meta Ad Library.</p>
+
+    <!-- PROGRESS -->
+    <div class="progress-wrap">
+      <div class="progress-label">
+        <span>Miera nasadenia dodanej kreativy</span>
+        <span>2 / 7 konceptov (29%)</span>
+      </div>
+      <div class="progress-bar">
+        <div class="progress-fill orange" style="width: 29%"></div>
+      </div>
+    </div>
+
+    <!-- MAIN CHECKLIST TABLE -->
+    <table class="audit-table">
+      <thead>
+        <tr>
+          <th style="width:4%">#</th>
+          <th style="width:28%">Kreativny koncept</th>
+          <th style="width:12%">Typ</th>
+          <th style="width:10%">Jazyky</th>
+          <th style="width:10%; text-align:center">Dodane DX</th>
+          <th style="width:14%; text-align:center">Zapracovane Proficio</th>
+          <th style="width:22%">Poznamka</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>1</strong></td>
+          <td>
+            <div class="item-name">Pneumatiky &amp; Uskladnenie</div>
+            <div class="item-desc">Chaos vs. Poriadok &mdash; emocion&aacute;lny koncept pre gar&aacute;&zcaron;</div>
+          </td>
+          <td>Statika (bannery)</td>
+          <td>SK, CZ, HU</td>
+          <td class="status-icon status-yes" style="text-align:center">&#10003;</td>
+          <td class="status-icon status-no" style="text-align:center">&#10007;</td>
+          <td><span class="badge badge-critical">Priorita &mdash; jarná sezóna</span></td>
+        </tr>
+        <tr>
+          <td><strong>2</strong></td>
+          <td>
+            <div class="item-name">Mamutex+ bannery</div>
+            <div class="item-desc">Remarketing &mdash; 14 rokov, r&yacute;chle doru&ccaron;enie, kvalita, n&aacute;hradn&eacute; diely</div>
+          </td>
+          <td>Statika (bannery)</td>
+          <td>SK, CZ, HU</td>
+          <td class="status-icon status-yes" style="text-align:center">&#10003;</td>
+          <td class="status-icon status-no" style="text-align:center">&#10007;</td>
+          <td><span class="badge badge-warning">Remarketing vrstva ch&yacute;ba</span></td>
+        </tr>
+        <tr>
+          <td><strong>3</strong></td>
+          <td>
+            <div class="item-name">Bestseller reg&aacute;l s mamutom</div>
+            <div class="item-desc">Produktov&yacute; form&aacute;t &mdash; recyklovateľn&yacute;, vymeň produkt &rarr; nov&yacute; banner</div>
+          </td>
+          <td>Statika (bannery)</td>
+          <td>SK, CZ, HU</td>
+          <td class="status-icon status-yes" style="text-align:center">&#10003;</td>
+          <td class="status-icon status-no" style="text-align:center">&#10007;</td>
+          <td><span class="badge badge-warning">Koncept s mamutom ne&zcaron;ije</span></td>
+        </tr>
+        <tr>
+          <td><strong>4</strong></td>
+          <td>
+            <div class="item-name">2T Reg&aacute;l &mdash; Profi segment</div>
+            <div class="item-desc">Engagement ot&aacute;zky, profesion&aacute;lny z&aacute;kazn&iacute;k, dielňa</div>
+          </td>
+          <td>Statika (bannery)</td>
+          <td>SK, CZ, HU</td>
+          <td class="status-icon status-yes" style="text-align:center">&#10003;</td>
+          <td class="status-icon status-no" style="text-align:center">&#10007;</td>
+          <td><span class="badge badge-info">Vy&scaron;&scaron;ia AOV &mdash; nevyu&zcaron;it&eacute;</span></td>
+        </tr>
+        <tr>
+          <td><strong>5</strong></td>
+          <td>
+            <div class="item-name">Jarn&eacute; vide&aacute;</div>
+            <div class="item-desc">Video Simona + AI vide&aacute; 2T reg&aacute;l + plastov&yacute; reg&aacute;l</div>
+          </td>
+          <td>Video (4 kusy)</td>
+          <td>SK, CZ</td>
+          <td class="status-icon status-yes" style="text-align:center">&#10003;</td>
+          <td class="status-icon status-partial" style="text-align:center">~</td>
+          <td><span class="badge badge-orange">1 video CZ (low impr.)</span></td>
+        </tr>
+        <tr>
+          <td><strong>6</strong></td>
+          <td>
+            <div class="item-name">AI produktov&eacute; fotos</div>
+            <div class="item-desc">Boxy a product shots pre katal&oacute;g a web</div>
+          </td>
+          <td>Foto (AI)</td>
+          <td>&mdash;</td>
+          <td class="status-icon status-yes" style="text-align:center">&#10003;</td>
+          <td class="status-icon status-partial" style="text-align:center">~</td>
+          <td><span class="badge badge-ok">&Ccaron;iasto&ccaron;ne v katal&oacute;g. ads</span></td>
+        </tr>
+        <tr>
+          <td><strong>7</strong></td>
+          <td>
+            <div class="item-name">Logo + Meta r&aacute;m&ccaron;eky</div>
+            <div class="item-desc">Logo na fialovom pozad&iacute; + r&aacute;m&ccaron;eky pre FB/IG profily</div>
+          </td>
+          <td>Branding</td>
+          <td>&mdash;</td>
+          <td class="status-icon status-yes" style="text-align:center">&#10003;</td>
+          <td class="status-icon" style="text-align:center; color: var(--dex-muted);">?</td>
+          <td><span class="badge badge-ok">Neoveriteľn&eacute; cez Ad Library</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- DRIVE ASSETS -->
+    <div class="cat-header">Assets na Drive &mdash; odoslan&eacute; 30.3.2026</div>
+    <table class="audit-table">
+      <thead>
+        <tr>
+          <th>Priečinok na Drive</th>
+          <th style="text-align:center">Odoslané</th>
+          <th style="text-align:center">Viditeľné v kampaniach</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>03 - LOGO (na fialovom)</td>
+          <td class="status-icon status-yes" style="text-align:center">&#10003;</td>
+          <td class="status-icon" style="text-align:center; color: var(--dex-muted);">?</td>
+        </tr>
+        <tr>
+          <td>03 - banners - reg&aacute;l na pneumatiky</td>
+          <td class="status-icon status-yes" style="text-align:center">&#10003;</td>
+          <td class="status-icon status-no" style="text-align:center">&#10007;</td>
+        </tr>
+        <tr>
+          <td>03 - r&aacute;m&ccaron;eky Meta</td>
+          <td class="status-icon status-yes" style="text-align:center">&#10003;</td>
+          <td class="status-icon" style="text-align:center; color: var(--dex-muted);">?</td>
+        </tr>
+        <tr>
+          <td>03 - vide&aacute; - jarn&aacute; sez&oacute;na</td>
+          <td class="status-icon status-yes" style="text-align:center">&#10003;</td>
+          <td class="status-icon status-partial" style="text-align:center">~</td>
+        </tr>
+        <tr>
+          <td>03 - AI produktov&eacute; fotos - boxy</td>
+          <td class="status-icon status-yes" style="text-align:center">&#10003;</td>
+          <td class="status-icon status-partial" style="text-align:center">~</td>
+        </tr>
+        <tr>
+          <td>03 - banners - bestseller reg&aacute;l</td>
+          <td class="status-icon status-yes" style="text-align:center">&#10003;</td>
+          <td class="status-icon status-no" style="text-align:center">&#10007;</td>
+        </tr>
+        <tr>
+          <td>03 - banners - Mamutex+ (vernostn&yacute; program)</td>
+          <td class="status-icon status-yes" style="text-align:center">&#10003;</td>
+          <td class="status-icon status-no" style="text-align:center">&#10007;</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ═══════ SK ADS ═══════ -->
+<section class="alt" id="sk-ads">
+  <div class="container">
+    <h2>Meta Ad Library &mdash; Slovensko</h2>
+    <p class="section-sub">~28 akt&iacute;vnych reklam na Mamutex.sk. Väčšina sú staré videá z Q3&ndash;Q4 2025.</p>
+
+    <div class="metrics-grid">
+      <div class="metric-card warn">
+        <h3>Najstar&scaron;ia akt&iacute;vna reklama</h3>
+        <div class="value">11.9.2025</div>
+        <div class="desc">Beží 7 mesiacov &mdash; ad fatigue riziko</div>
+      </div>
+      <div class="metric-card">
+        <h3>Najnov&scaron;ia reklama</h3>
+        <div class="value">2.4.2026</div>
+        <div class="desc">Dexfinity Masterclass (nie Mamutex)</div>
+      </div>
+      <div class="metric-card good">
+        <h3>Katalógové ads z marca</h3>
+        <div class="value">~5</div>
+        <div class="desc">Produktové stránky &mdash; AI fotos čiastočne</div>
+      </div>
+      <div class="metric-card dark">
+        <h3>Čo chýba</h3>
+        <div class="value">Žiadne marcové bannery, žiadny Chaos vs Poriadok, žiadny Mamutex+, žiadny 2T regál</div>
+      </div>
+    </div>
+
+    <div class="cat-header">Staré videá (sept&ndash;nov 2025) &mdash; stále aktívne</div>
+    <div class="ads-grid">
+      <div class="ad-card">
+        <div class="ad-header">
+          <span class="type">Video &middot; od 11.9.2025</span>
+          <span class="platform">SK</span>
+        </div>
+        <div class="ad-body">
+          <h4>&ldquo;Rýchla a jednoduchá montáž? To je Mamutex!&rdquo;</h4>
+          <p>mamutex.sk/regaly/ &middot; CTA: Nakupovať</p>
+          <div class="tags">
+            <span class="issue-tag severe">7 mesiacov</span>
+            <span class="issue-tag">Ad fatigue</span>
+          </div>
+        </div>
+      </div>
+      <div class="ad-card">
+        <div class="ad-header">
+          <span class="type">Video &middot; od 21.11.2025</span>
+          <span class="platform">SK &middot; 2 verzie</span>
+        </div>
+        <div class="ad-body">
+          <h4>&ldquo;Udržiavajte poriadok s regálmi Mamutex&rdquo;</h4>
+          <p>Nosnosť až 2 tony &middot; mamutex.sk/regaly-mamutex/</p>
+          <div class="tags">
+            <span class="issue-tag severe">5 mesiacov</span>
+          </div>
+        </div>
+      </div>
+      <div class="ad-card">
+        <div class="ad-header">
+          <span class="type">Video &middot; od 7.10.2025</span>
+          <span class="platform">SK</span>
+        </div>
+        <div class="ad-body">
+          <h4>&ldquo;Elegantný, stabilný &mdash; regál do kúpeľne&rdquo;</h4>
+          <p>mamutex.sk/regaly-mamutex/ &middot; CTA: Nakupovať</p>
+          <div class="tags">
+            <span class="issue-tag severe">6 mesiacov</span>
+          </div>
+        </div>
+      </div>
+      <div class="ad-card">
+        <div class="ad-header">
+          <span class="type">Video &middot; od 6.11.2025</span>
+          <span class="platform">SK &middot; viac verzií</span>
+        </div>
+        <div class="ad-body">
+          <h4>&ldquo;Regály, ktoré nezničíte! Každá polica vydrží až 175 kg&rdquo;</h4>
+          <p>mamutex.sk/regaly-mamutex/ &middot; CTA: Shop Now</p>
+          <div class="tags">
+            <span class="issue-tag severe">5 mesiacov</span>
+          </div>
+        </div>
+      </div>
+      <div class="ad-card">
+        <div class="ad-header">
+          <span class="type">Video &middot; od 8.11.2025</span>
+          <span class="platform">SK &middot; viac verzií</span>
+        </div>
+        <div class="ad-body">
+          <h4>&ldquo;Chcete mať všetko na správnom mieste?&rdquo;</h4>
+          <p>mamutex.sk/regaly-mamutex/ &middot; CTA: Shop Now</p>
+          <div class="tags">
+            <span class="issue-tag severe">5 mesiacov</span>
+          </div>
+        </div>
+      </div>
+      <div class="ad-card">
+        <div class="ad-header">
+          <span class="type">Video &middot; od 14.1.2026</span>
+          <span class="platform">SK</span>
+        </div>
+        <div class="ad-body">
+          <h4>&ldquo;Jednoduché zloženie regálov Mamutex zvládnete sami&rdquo;</h4>
+          <p>mamutex.sk/regaly-mamutex/ &middot; CTA: Nakupovať</p>
+          <div class="tags">
+            <span class="issue-tag">3 mesiace</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cat-header">Novšie &mdash; katalógové / produktové (marec 2026)</div>
+    <div class="ads-grid">
+      <div class="ad-card">
+        <div class="ad-header">
+          <span class="type">Statika &middot; od 11.&ndash;24.3.2026</span>
+          <span class="platform">SK &middot; viac verzií</span>
+        </div>
+        <div class="ad-body">
+          <h4>&ldquo;Vyskúšajte silu regálov Mamutex!&rdquo;</h4>
+          <p>Produktové stránky (zinkovany, dreveny regal) &middot; CTA: Shop Now</p>
+          <div class="tags">
+            <span class="badge badge-positive">Nové</span>
+            <span class="issue-tag">Katalóg</span>
+          </div>
+        </div>
+      </div>
+      <div class="ad-card">
+        <div class="ad-header">
+          <span class="type">Video &middot; od 9.1.2026</span>
+          <span class="platform">SK</span>
+        </div>
+        <div class="ad-body">
+          <h4>&ldquo;Udržiavajte poriadok &mdash; Stabilita&rdquo; (drevené regály)</h4>
+          <p>mamutex.sk/drevene-regaly/ &middot; CTA: Nakupovať</p>
+          <div class="tags">
+            <span class="badge badge-positive">Novšie</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ CZ ADS ═══════ -->
+<section id="cz-ads">
+  <div class="container">
+    <h2>Meta Ad Library &mdash; Česko</h2>
+    <p class="section-sub">~27 akt&iacute;vnych reklam na Mamutex.cz. Rovnaký vzor ako SK &mdash; staré videá dominujú.</p>
+
+    <div class="metrics-grid">
+      <div class="metric-card warn">
+        <h3>Najstar&scaron;ia aktívna</h3>
+        <div class="value">11.9.2025</div>
+        <div class="desc">Beží 7 mesiacov</div>
+      </div>
+      <div class="metric-card good">
+        <h3>Nové video (31.3.)</h3>
+        <div class="value">1</div>
+        <div class="desc">Ale nízky počet impresií!</div>
+      </div>
+      <div class="metric-card">
+        <h3>Katalógové ads</h3>
+        <div class="value">~6</div>
+        <div class="desc">Produktové stránky z marca</div>
+      </div>
+      <div class="metric-card dark">
+        <h3>Nové video CZ</h3>
+        <div class="value">&ldquo;Hledáte pevné a spolehlivé regály do dílny nebo skladu?&rdquo; &mdash; od 31.3.2026 ale flagnuté ako low impressions</div>
+      </div>
+    </div>
+
+    <div class="cat-header">Staré videá stále aktívne (sept&ndash;jan)</div>
+    <div class="ads-grid">
+      <div class="ad-card">
+        <div class="ad-header">
+          <span class="type">Video &middot; od 11.9.2025</span>
+          <span class="platform">CZ &middot; 5+ verzií</span>
+        </div>
+        <div class="ad-body">
+          <h4>&ldquo;Rychlá a jednoduchá montáž? To je Mamutex!&rdquo;</h4>
+          <p>mamutex.cz/regaly/ &middot; Najstarší aktívny ad</p>
+          <div class="tags">
+            <span class="issue-tag severe">7 mesiacov</span>
+          </div>
+        </div>
+      </div>
+      <div class="ad-card">
+        <div class="ad-header">
+          <span class="type">Video &middot; od 20.1.2026</span>
+          <span class="platform">CZ &middot; 6 verzií</span>
+        </div>
+        <div class="ad-body">
+          <h4>&ldquo;Udržujte pořádek s regály Mamutex &mdash; Nosnost až 2 tuny&rdquo;</h4>
+          <p>mamutex.cz/regaly/</p>
+          <div class="tags">
+            <span class="issue-tag">3 mesiace</span>
+          </div>
+        </div>
+      </div>
+      <div class="ad-card">
+        <div class="ad-header">
+          <span class="type">Video &middot; od 7.10.2025</span>
+          <span class="platform">CZ &middot; 3 verzie</span>
+        </div>
+        <div class="ad-body">
+          <h4>&ldquo;Elegantní, stabilní &mdash; regál do každé koupelny&rdquo;</h4>
+          <p>mamutex.cz/regaly/</p>
+          <div class="tags">
+            <span class="issue-tag severe">6 mesiacov</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cat-header">Nové z marca 2026</div>
+    <div class="ads-grid">
+      <div class="ad-card">
+        <div class="ad-header">
+          <span class="type">Statika &middot; od 24.&ndash;25.3.2026</span>
+          <span class="platform">CZ &middot; viac verzií</span>
+        </div>
+        <div class="ad-body">
+          <h4>&ldquo;Vyzkoušejte sílu regálů Mamutex!&rdquo;</h4>
+          <p>Produktové stránky (dřevený, lakovaný, zinkovaný) &middot; CTA: Shop Now</p>
+          <div class="tags">
+            <span class="badge badge-positive">Nové</span>
+            <span class="issue-tag">Katalóg</span>
+          </div>
+        </div>
+      </div>
+      <div class="ad-card">
+        <div class="ad-header">
+          <span class="type">Video &middot; od 31.3.2026</span>
+          <span class="platform">CZ &middot; 2 verzie</span>
+        </div>
+        <div class="ad-body">
+          <h4>&ldquo;Hledáte pevné a spolehlivé regály do dílny nebo skladu?&rdquo;</h4>
+          <p>mamutex.cz &middot; Nízky počet impresií</p>
+          <div class="tags">
+            <span class="badge badge-positive">Nové</span>
+            <span class="issue-tag severe">Low impressions</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ FINDINGS ═══════ -->
+<section class="alt" id="findings">
+  <div class="container">
+    <h2>Kľúčové zistenia</h2>
+    <p class="section-sub">Analýza gapu medzi dodanou a nasadenou kreatívou.</p>
+
+    <div class="finding">
+      <div class="bar high"></div>
+      <div class="content">
+        <h4><span class="badge badge-critical">Kritické</span> Hlavné marcové koncepty nie sú nasadené</h4>
+        <p>4 z 5 bannerových konceptov (Pneumatiky, Mamutex+, Bestseller, 2T regál) dodaných ako &ldquo;ready na nasadenie&rdquo; nie sú viditeľné v žiadnej kampani na SK ani CZ. Email bol odoslaný 30.3., Veronika potvrdila prijatie 31.3.</p>
+        <div class="rec"><strong>Odporúčanie:</strong> Urgentný follow-up s Veronikou &mdash; je jarná sezóna, pneumatiky sú téma teraz.</div>
+      </div>
+    </div>
+
+    <div class="finding">
+      <div class="bar high"></div>
+      <div class="content">
+        <h4><span class="badge badge-critical">Kritické</span> Ad fatigue &mdash; 5&ndash;7 mesačné videá dominujú</h4>
+        <p>Väčšina budget Proficia ide na videá zo sept.&ndash;nov. 2025. Po 5+ mesiacoch behu rovnakých kreatív je vysoké riziko frequency cap a klesajúceho CTR. Nové kreatívy boli pripravené práve na riešenie tohto problému.</p>
+        <div class="rec"><strong>Odporúčanie:</strong> Požiadať Proficio o frequency report a CTR trend. Ak klesá &rarr; okamžitý refresh novými bannermi.</div>
+      </div>
+    </div>
+
+    <div class="finding">
+      <div class="bar med"></div>
+      <div class="content">
+        <h4><span class="badge badge-warning">Stredné</span> Remarketing vrstva kompletne chýba</h4>
+        <p>Mamutex+ bannery boli navrhnuté ako remarketing vrstva pre zákazníkov, ktorí opustili web bez nákupu. V kampaniach nie je viditeľný žiadny remarketing koncept &mdash; všetko sú akvizičné formáty.</p>
+        <div class="rec"><strong>Odporúčanie:</strong> Nasadiť Mamutex+ bannery do remarketingových kampaní paralelne s akvizíciou.</div>
+      </div>
+    </div>
+
+    <div class="finding">
+      <div class="bar med"></div>
+      <div class="content">
+        <h4><span class="badge badge-warning">Stredné</span> Jarné videá &mdash; len 1 z 4 nasadené</h4>
+        <p>Z 4 dodaných videí (Simona, AI 2T regál, plastový regál, jar) sa v CZ objavilo 1 nové video od 31.3. s &ldquo;nízkym počtom impresií&rdquo;. V SK nie je viditeľné žiadne nové jarné video.</p>
+        <div class="rec"><strong>Odporúčanie:</strong> Overiť, či Proficio nasadilo videá s dostatočným budget a či sú aktívne aj v SK.</div>
+      </div>
+    </div>
+
+    <div class="finding">
+      <div class="bar low"></div>
+      <div class="content">
+        <h4><span class="badge badge-info">Info</span> HU trh &mdash; stav neznámy</h4>
+        <p>Maďarský trh sme nepreverili v Ad Library. Jazykové verzie pre HU boli dodané pre statiku, ale videá ešte čakali na dopracovanie.</p>
+        <div class="rec"><strong>Odporúčanie:</strong> Overiť s Veronikou stav HU kampaní a jazykových verzií.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ SUMMARY BOX ═══════ -->
+<section>
+  <div class="container">
+    <div class="summary-box">
+      <div class="circle-dec c1"></div>
+      <div class="circle-dec c2"></div>
+      <h2>Celkov&yacute; s&uacute;hrn</h2>
+      <div class="summary-grid">
+        <div class="summary-item">
+          <div class="val">7</div>
+          <div class="label-title">Dodan&yacute;ch konceptov</div>
+          <div class="desc">Bannery, vide&aacute;, AI fotos, branding</div>
+        </div>
+        <div class="summary-item">
+          <div class="val orange">2</div>
+          <div class="label-title">&Ccaron;iasto&ccaron;ne nasaden&eacute;</div>
+          <div class="desc">Katalóg. ads + 1 video (CZ only)</div>
+        </div>
+        <div class="summary-item">
+          <div class="val orange">5</div>
+          <div class="label-title">&Ccaron;ak&aacute; na nasadenie</div>
+          <div class="desc">Hlavné koncepty z marca</div>
+        </div>
+        <div class="summary-item">
+          <div class="val">~55</div>
+          <div class="label-title">Akt&iacute;vnych reklam</div>
+          <div class="desc">SK (~28) + CZ (~27)</div>
+        </div>
+        <div class="summary-item">
+          <div class="val orange">5&ndash;7m</div>
+          <div class="label-title">Priemern&yacute; vek kreat&iacute;v</div>
+          <div class="desc">Väčšina videí z Q3&ndash;Q4 2025</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ ACTIONS ═══════ -->
+<section class="alt" id="actions">
+  <div class="container">
+    <h2>Odporúčané ďalšie kroky</h2>
+    <p class="section-sub">Prioritizovaný akčný plán na základe zistení.</p>
+
+    <div class="rec-timeline">
+      <div class="rec-step">
+        <div class="step-label">Krok 1 &mdash; Urgentne</div>
+        <h3>Follow-up s Veronikou</h3>
+        <p>Opýtať sa na status nasadenia marcových kreatív. Prešla to už s META tímom? Čo potrebujú doladiť?</p>
+      </div>
+      <div class="rec-step">
+        <div class="step-label">Krok 2 &mdash; Urgentne</div>
+        <h3>Pneumatiky &amp; Uskladnenie &rarr; nasadiť</h3>
+        <p>Najsilnejší koncept, jarná sezóna beží. Každý deň bez nasadenia = premárnená príležitosť.</p>
+      </div>
+      <div class="rec-step">
+        <div class="step-label">Krok 3 &mdash; Vysoká priorita</div>
+        <h3>Ad fatigue audit</h3>
+        <p>Požiadať Proficio o dáta k frequency a CTR trendov starých videí. Ak padajú &rarr; urgentný refresh novými bannermi.</p>
+      </div>
+      <div class="rec-step">
+        <div class="step-label">Krok 4 &mdash; Vysoká priorita</div>
+        <h3>Mamutex+ do remarketingu</h3>
+        <p>Jednoduché nasadenie, nekonkuruje akvizícii, buduje dôveru. Ideálne spustiť paralelne.</p>
+      </div>
+      <div class="rec-step">
+        <div class="step-label">Krok 5 &mdash; Stredná priorita</div>
+        <h3>HU trh preverit + reporting cyklus</h3>
+        <p>Nastaviť s Proficiom pravidelné overovanie, či sú nové kreatívy nasadené a aký majú výkon.</p>
+      </div>
+    </div>
+
+    <!-- PRIORITY MATRIX -->
+    <div class="priority-summary">
+      <h3>Prioritná matica</h3>
+      <div class="priority-row">
+        <div class="p-dot p1"></div>
+        <div class="p-text">Pneumatiky &amp; Uskladnenie bannery nasadiť</div>
+        <div class="p-impact">High impact</div>
+        <div class="p-effort">Low effort</div>
+      </div>
+      <div class="priority-row">
+        <div class="p-dot p1"></div>
+        <div class="p-text">Follow-up s Veronikou / Proficiom</div>
+        <div class="p-impact">High impact</div>
+        <div class="p-effort">Low effort</div>
+      </div>
+      <div class="priority-row">
+        <div class="p-dot p2"></div>
+        <div class="p-text">Mamutex+ remarketingové bannery</div>
+        <div class="p-impact med">Med impact</div>
+        <div class="p-effort">Low effort</div>
+      </div>
+      <div class="priority-row">
+        <div class="p-dot p2"></div>
+        <div class="p-text">Frequency / CTR audit starých videí</div>
+        <div class="p-impact med">Med impact</div>
+        <div class="p-effort">Med effort</div>
+      </div>
+      <div class="priority-row">
+        <div class="p-dot p2"></div>
+        <div class="p-text">Bestseller regál + 2T regál koncepty</div>
+        <div class="p-impact med">Med impact</div>
+        <div class="p-effort">Low effort</div>
+      </div>
+      <div class="priority-row">
+        <div class="p-dot p3"></div>
+        <div class="p-text">HU trh &mdash; preverenie a nasadenie</div>
+        <div class="p-impact low">Lower</div>
+        <div class="p-effort">Med effort</div>
+      </div>
+      <div class="priority-row">
+        <div class="p-dot p3"></div>
+        <div class="p-text">Nastavenie pravidelného reporting cyklu</div>
+        <div class="p-impact low">Lower</div>
+        <div class="p-effort">Low effort</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ TIMELINE ═══════ -->
+<section>
+  <div class="container">
+    <h2>Časová os komunikácie</h2>
+    <p class="section-sub">Kľúčové momenty v spolupráci za posledné 2 týždne.</p>
+
+    <div class="rec-timeline">
+      <div class="rec-step">
+        <div class="step-label">24. marca 2026</div>
+        <h3>Sync call Mamutex / Proficio / Dexfinity</h3>
+        <p>Prebratie všetkých výstupov, dohodnutie ďalších krokov.</p>
+      </div>
+      <div class="rec-step">
+        <div class="step-label">30. marca 2026</div>
+        <h3>Email s kompletným prehľadom</h3>
+        <p>Odoslaný Veronike &mdash; Figma link, Drive priečinky, popis všetkých 5 konceptov, 4 videá.</p>
+      </div>
+      <div class="rec-step">
+        <div class="step-label">31. marca 2026</div>
+        <h3>Veronika potvrdila prijatie</h3>
+        <p>&ldquo;Projdu to s META týmem a dáme k tomu zpětnou.&rdquo;</p>
+      </div>
+      <div class="rec-step">
+        <div class="step-label">1. apr&iacute;la 2026</div>
+        <h3>Hot conversation &mdash; 25 opens</h3>
+        <p>Mailsuite: Veronika opakovane otvára email s kreatívami.</p>
+      </div>
+      <div class="rec-step">
+        <div class="step-label">2. apr&iacute;la 2026</div>
+        <h3>Uzatvorenie marcových taskov</h3>
+        <p>Nicole &amp; Adriána uzatvárajú fakturáciu (AI kreativa + Product pictures).</p>
+      </div>
+      <div class="rec-step">
+        <div class="step-label">7. apr&iacute;la 2026 (dnes)</div>
+        <h3>Creative Review</h3>
+        <p>Väčšina marcovej kreativy stále nie je nasadená. Proficio zatiaľ nedalo spätnú väzbu k nasadeniu.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ FOOTER ═══════ -->
+<footer class="footer">
+  <div class="circle-f f1"></div>
+  <div class="circle-f f2"></div>
+  <img src="https://www.dexfinity.com/wp-content/uploads/2021/03/Logo-Small-Light-Landscape@2x.png" alt="Dexfinity" class="footer-logo">
+  <p>Mamutex Creative Review &middot; Apríl 2026 &middot; Pripravil: Pavol Adamčák</p>
+  <p>Zdroje: Meta Ad Library, Gmail komunikácia, Basecamp</p>
+  <div class="go-beyond">Go Beyond</div>
+</footer>
+
+</body>
+</html>
